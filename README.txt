@@ -1,7 +1,5 @@
-FORT ROCK // WRONG-CHOICE ARTWORK UPDATE
+Fort Rock Outpost — artwork update
 
-Upload index.html and all scene_*.png files to the ROOT of your GitHub repository. The two README files already on GitHub may remain.
+Added scene_vague.png for the incomplete handoff choice and scene_assume.png for the dehydration assumption choice. All other artwork and game decisions are preserved.
 
-New artwork: water, history, walk, and failure. These are artistic representations of the consequences; the game text remains the authoritative description.
-
-All decisions, endings, debriefs and ungraded status remain unchanged.
+Upload index.html and all scene_*.png files into the root of your GitHub repository. Keep both README files if desired.
