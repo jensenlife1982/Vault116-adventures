@@ -1,11 +1,7 @@
-FORT ROCK // UPDATED ARTWORK PACK
+FORT ROCK // WRONG-CHOICE ARTWORK UPDATE
 
-Upload index.html and ALL five scene_*.png files to the ROOT of your GitHub repository.
-Replace the existing index.html, scene_arrival.png and scene_assessment.png.
-The GitHub Pages URL and Blackboard link stay unchanged.
+Upload index.html and all scene_*.png files to the ROOT of your GitHub repository. The two README files already on GitHub may remain.
 
-New artwork: scene_deterioration.png (worse), scene_intervention.png (urgent and handoff), scene_stabilization.png (review).
-Other branches retain their existing green SVG illustrations.
+New artwork: water, history, walk, and failure. These are artistic representations of the consequences; the game text remains the authoritative description.
 
-Note: The concluding illustration depicts possible recovery; the story explicitly states the final diagnosis and outcome are unknown.
-No changes to clinical branching, mission failure, debrief, scoring, tracking or caps.
+All decisions, endings, debriefs and ungraded status remain unchanged.
