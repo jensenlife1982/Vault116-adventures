@@ -4,100 +4,135 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vault 116 | CVR Holotape Archive</title>
+<title>Vault 116 CVR Holotape Archive</title>
 <style>
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: #10170d;
-    color: #a9ff70;
-    font-family: Consolas, "Courier New", monospace;
-  }
-  .pipboy {
-    max-width: 900px;
-    min-height: 620px;
-    margin: 24px auto;
-    padding: 28px;
-    border: 7px solid #536b3d;
-    border-radius: 24px;
-    background: #081507;
-    box-shadow: 0 0 30px #456a2c;
-  }
-  h1 { font-size: 27px; margin: 0 0 8px; }
-  .subtitle {
-    border-bottom: 2px solid #a9ff70;
-    padding-bottom: 15px;
-  }
-  .status { color: #d8ffad; font-size: 14px; }
-  button {
-    display: block;
-    width: 100%;
-    margin: 16px 0;
-    padding: 18px;
-    background: #122c0c;
-    color: #a9ff70;
-    border: 2px solid #a9ff70;
-    font: inherit;
-    font-size: 17px;
-    cursor: pointer;
-    text-align: left;
-  }
-  button:hover, button:focus {
-    background: #a9ff70;
-    color: #081507;
-  }
-  .hidden { display: none; }
-  audio { width: 100%; margin: 20px 0; }
-  .screen {
-    border: 1px solid #658d46;
-    padding: 20px;
-    margin-top: 22px;
-    min-height: 280px;
-  }
-  .label { color: #e4ffb5; }
-  .footer {
-    margin-top: 28px;
-    font-size: 12px;
-    opacity: .75;
-    text-align: center;
-  }
-  @media(max-width: 600px) {
-    .pipboy { margin: 5px; padding: 15px; }
-    h1 { font-size: 21px; }
-  }
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #151711;
+  font-family: Consolas, "Courier New", monospace;
+  color: #a9ff70;
+}
+
+.archive {
+  width: min(100%, 1100px);
+  margin: 20px auto;
+  position: relative;
+}
+
+.casing {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.screen {
+  position: absolute;
+  left: 23%;
+  top: 22%;
+  width: 54%;
+  height: 51%;
+  background: #071307;
+  color: #a9ff70;
+  overflow: auto;
+  padding: 2.5%;
+  border-radius: 8px;
+  box-shadow: inset 0 0 25px #143b10;
+  text-shadow: 0 0 5px #70ff50;
+}
+
+h1 {
+  font-size: clamp(12px, 2.2vw, 25px);
+  margin: 0 0 8px;
+  border-bottom: 2px solid #a9ff70;
+}
+
+p {
+  font-size: clamp(10px, 1.3vw, 15px);
+}
+
+button {
+  width: 100%;
+  background: transparent;
+  color: #a9ff70;
+  border: 1px solid #a9ff70;
+  padding: 12px;
+  margin: 8px 0;
+  font: inherit;
+  font-size: clamp(10px, 1.3vw, 15px);
+  text-align: left;
+  cursor: pointer;
+}
+
+button:hover, button:focus {
+  background: #a9ff70;
+  color: #071307;
+}
+
+audio {
+  display: block;
+  width: 100%;
+  margin: 15px 0;
+}
+
+.hidden { display: none; }
+
+.status {
+  font-size: 12px;
+  opacity: .85;
+}
+
+@media (max-width: 600px) {
+  .archive { min-width: 360px; }
+  .screen { padding: 2%; }
+  button { padding: 6px; margin: 5px 0; }
+}
 </style>
 </head>
+
 <body>
-<main class="pipboy">
+<main class="archive">
+
+<img
+  class="casing"
+  src="../pipboy_casing.png"
+  alt="Vault-Tec Pip-Boy casing"
+>
+
+<div class="screen">
   <h1>VAULT 116</h1>
-  <div class="subtitle">CVR HOLOTAPE ARCHIVE</div>
-  <p class="status">VAULT-TEC EDUCATIONAL RECORDS // ACCESS GRANTED</p>
+  <p>CVR HOLOTAPE ARCHIVE</p>
 
-  <section id="menu" class="screen">
-    <p class="label">SELECT AUDIO RECORDING:</p>
+  <section id="menu">
+    <p class="status">SELECT RECORDING:</p>
+
     <button onclick="openTape(1)">
-      [01] CVR HOLOTAPE - PART I
+      [01] CVR PART I
     </button>
+
     <button onclick="openTape(2)">
-      [02] CVR HOLOTAPE - PART II
+      [02] CVR PART II
     </button>
-    <p>Recorded by Shantelle and Kristen</p>
-    <p>Cardiovascular • Respiratory • Shock</p>
+
+    <p>Shantelle &amp; Kristen</p>
+    <p>Cardiovascular / Respiratory / Shock</p>
   </section>
 
-  <section id="player" class="screen hidden">
-    <h2 id="tapeTitle"></h2>
-    <p>Vault 116 Medical Education Archive</p>
-    <audio id="audio" controls preload="metadata"></audio>
-    <p id="message" role="status"></p>
+  <section id="player" class="hidden">
+    <p id="tapeTitle"></p>
+
+    <audio id="audio" controls preload="metadata">
+    </audio>
+
+    <p id="message" class="status" role="status"></p>
+
     <button onclick="returnToMenu()">
-      &lt; RETURN TO HOLOTAPE MENU
+      &lt; RETURN TO MENU
     </button>
   </section>
+</div>
 
-  <div class="footer">
-    VAULT-TEC MEDICAL TRAINING DIVISION // VAULT 116
-  </div>
 </main>
 
 <script>
@@ -119,12 +154,14 @@ const message = document.getElementById("message");
 
 function openTape(number) {
   const tape = tapes[number];
+
   audio.pause();
   audio.removeAttribute("src");
   audio.load();
 
   document.getElementById("tapeTitle").textContent = tape.title;
   message.textContent = "Loading recording...";
+
   audio.src = tape.url;
   audio.load();
 
@@ -136,6 +173,7 @@ function returnToMenu() {
   audio.pause();
   audio.removeAttribute("src");
   audio.load();
+
   message.textContent = "";
   player.classList.add("hidden");
   menu.classList.remove("hidden");
@@ -144,9 +182,9 @@ function returnToMenu() {
 audio.addEventListener("loadedmetadata", () => {
   message.textContent = "Recording ready. Press Play.";
 });
+
 audio.addEventListener("error", () => {
-  message.textContent =
-    "Unable to load recording. Check the audio file in GitHub.";
+  message.textContent = "Unable to load recording.";
 });
 </script>
 </body>
