@@ -1,0 +1,1 @@
+Extract all files. Open index.html in Chrome. Artwork and casing are embedded in HTML. Keep soundtrack.mp3 beside index.html.
