@@ -1,0 +1,1 @@
+Fire and Ice — upload index.html, soundtrack.mp3 and scenes folder to GitHub Pages. Seven cinematic illustrations are reused across 15 scenes; images are illustrative, and the written clinical findings govern decisions. Music: Ashot Danielyan — Tense Piano Cinematic (user-supplied; verify reuse license before publishing). Original clinical content retained.
